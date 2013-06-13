@@ -1,0 +1,44 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleZibase" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleZibase" scope="public">
+    <example>Sarah allume la lumière du salon</example>
+    <tag>out.action=new Object(); </tag>
+    <item>Sarah</item>
+	
+     <one-of>
+      <item>allume<tag>out.action.actionModule="ON"</tag></item>
+	  <item>ouvre<tag>out.action.actionModule="ON"</tag></item>
+      <item>éteint<tag>out.action.actionModule="OFF"</tag></item>
+	  <item>ferme<tag>out.action.actionModule="OFF"</tag></item>
+	  <item>lance le scenario</item>
+	  <item>arrète le scenario</item>
+    </one-of> 
+	
+    <one-of>
+	<!-- Module Zwave -->
+		<item>les volets du salon
+			<tag>out.action.actionType=0;
+				out.action.actionProto=6;
+				out.action.actionAdd1=3;
+				out.action.actionAdd2="A";</tag>
+		</item>
+	<!-- Module Chacon -->
+		<item>la lumière du salon
+			<tag>out.action.actionType=0;
+				out.action.actionProto=0;
+				out.action.actionAdd1=1;
+				out.action.actionAdd2="B";</tag>
+		</item>
+	<!-- Scenario  -->
+		<item>alarme désactivée
+			<tag>out.action.actionType=1;
+				out.action.actionScenario=9;</tag>
+		</item>
+		<item>alarme activée
+			<tag>out.action.actionType=1;
+				out.action.actionScenario=10;</tag>
+		</item>
+    </one-of>
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/zibase";</tag>
+  </rule>
+</grammar>
+              

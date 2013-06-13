@@ -1,0 +1,38 @@
+<html>
+<body>
+<h1>== ATTRIBUTS ==</h1><br>
+Description des balises du zibase.xml<br>
+<b>actionType : </b> Type d'emission (0 = peripherique, 1= scenario)<br>
+<b>actionModule : </b> Action à effectuer (off, on). Uniquement dans le cas d'une action sur un peripherique<br>
+<b>actionProto : </b> Protocole à utiliser si type=0 (cf ci dessous)<br>
+<b>actionAdd1 : </b> Chiffre adresse du module, si type = 0<br>
+<b>actionAdd2 : </b> ettre adresse, si type = 0<br>
+<b>actionScenario : </b>	// id du scenario si type=1<br>
+<br>
+<h1>==== LISTE DES PROTOCOLES ====</h1>
+Ces valeurs sont a renseigner dans la balise <Proto> du zibase.xml<br>
+<br>
+DEFAULT BROADCAST (X10, CHACON) : 0<br>
+VISONIC433: 1 ( frequency : device RF LOW, 310..418..433Mhz band))<br>
+VISONIC868: 2<br>
+CHACON (32bits frame) (ChaconV2/DIO series) : 3<br>
+DOMIA (24 bits frame) ( Chacon V1 + low-cost devices): 4<br>
+RF X10 : 5<br>
+ZWAVE : 6<br>
+RFS10/TS10 : 7<br>
+XDD433 alrm : 8<br>
+XDD868 alrm : 9<br>
+XDD868 inter/shutter : 10<br>
+XDD868 Pilot Wire : 11<br>
+XDD868 Boiler/AC : 12<br>
+<br>
+<h1>=== TODO List ====</h1>
+<br>
+Gestion variateur (DIM)<br>
+Lecture Sondes<br>
+Supprimer l'attribut actionType (se baser sur valeur add ou module)<br>
+Retour TTS actions<br>
+Ménage dans le code pour le rendre plus "propre" :p<br>
+<br>
+</body>
+</html>
