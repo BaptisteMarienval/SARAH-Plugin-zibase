@@ -1,16 +1,29 @@
 <html>
 <body>
-<h1>== ATTRIBUTS ==</h1><br>
-Description des balises du zibase.xml<br>
-<b>actionType : </b> Type d'emission (0 = peripherique, 1= scenario)<br>
+<h1>==== CONFIGURATION ZIBASE.PROP ====</h1><br>
+Le fichier zibase.prop permet de parametrer les informations necessaires au bon fonctionnement du plugin.<br>
+Il est donc indispensable de renseigner ces 6 éléments :<br>
+- api_url_web : Correspond à l'adresse de la plateforme zibase de votre installation. Par exemple, si vous utilisez la plateforme zibase-club, la valeur sera https://zibase-club.net/m/zapi_remote_zibase_set.php<br>
+- api_url_lan : Permet d'envoyer des requetes directement à la zibase (sans passer par la plateforme web). Il suffit pour cela d'indiquer l'adresse IP locale de la box, par exemple : http://192.168.0.2/cgi-bin/domo.cgi<br>
+- acces_method : Ce parametre permet de choisir entre la méthode locale (lan) ou via la plateforme web (web).<br>
+- device : Indique le nom de votre Zibase (ZIBASEXXXXX).<br>
+- token : Le token associé a votre compte, visible dans l'onglet systeme de l'interface web.<br>
+<br>
+Les parametres device et token sont utilisés uniquement dans le cas d'une connexion web. Lors de l'appel direct en lan, ils ne sont pas utilisés.<br>
+Le mode lan permet une meilleure réactivité et un fonctionnement "offline" (en cas de coupure d'internet par exemple), mais il n'y a pas de retour.<br>
+Le mode web permet d'avoir un résultat de retour à la requete mais oblige la requete à transiter via un serveur externe.<br>
+<br>
+<h1>==== LE FICHIER ZIBASE.XML ====</h1><br>
+C'est dans ce fichier que nous allons définir notre grammaire et les actions à effectuer. Pour cela, nous allons utiliser des attributs :<br>
+<b>actionType : </b> Type d'emission (0 = peripherique, 1= scenario). Il est possible d'effectuer une action sur un péripherique en particulier (actionType=0), ou d'appeler un scenario (actionType=1).<br>
 <b>actionModule : </b> Action à effectuer (off, on). Uniquement dans le cas d'une action sur un peripherique<br>
 <b>actionProto : </b> Protocole à utiliser si type=0 (cf ci dessous)<br>
 <b>actionAdd1 : </b> Chiffre adresse du module, si type = 0<br>
 <b>actionAdd2 : </b> ettre adresse, si type = 0<br>
-<b>actionScenario : </b>	// id du scenario si type=1<br>
+<b>actionScenario : </b> id du scenario si type=1<br>
 <br>
 <h1>==== LISTE DES PROTOCOLES ====</h1>
-Ces valeurs sont a renseigner dans la balise <Proto> du zibase.xml<br>
+Ces valeurs sont a renseigner dans la balise actionProto du zibase.xml<br>
 <br>
 DEFAULT BROADCAST (X10, CHACON) : 0<br>
 VISONIC433: 1 ( frequency : device RF LOW, 310..418..433Mhz band))<br>
@@ -25,6 +38,31 @@ XDD868 alrm : 9<br>
 XDD868 inter/shutter : 10<br>
 XDD868 Pilot Wire : 11<br>
 XDD868 Boiler/AC : 12<br>
+<br>
+<h1>==== EXEMPLES ====</h1>
+Pour actionner le module d'id B2 de type Chacon, on utilisera les paramètres :<br>
+actionType : 0<br>
+actionModule : ON<br>
+actionProto : 0<br>
+actionAdd1 : 2<br>
+actionAdd2 : B<br>
+actionScenario :  (inutilisé)<br>
+<br>
+Pour désactiver le module d'id A1 de type Zwave, on utilisera les paramètres :<br>
+actionType : 0<br>
+actionModule : OFF<br>
+actionProto : 6<br>
+actionAdd1 : 1<br>
+actionAdd2 : A<br>
+actionScenario :  (inutilisé)<br>
+<br>
+Pour lancer le scénario 15, on utilisera les paramètres :<br>
+actionType : 1<br>
+actionModule : (inutilisé)<br>
+actionProto : (inutilisé)<br>
+actionAdd1 : (inutilisé)<br>
+actionAdd2 : (inutilisé)<br>
+actionScenario : 15<br>
 <br>
 <h1>=== TODO List ====</h1>
 <br>
