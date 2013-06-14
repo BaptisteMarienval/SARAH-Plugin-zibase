@@ -15,12 +15,11 @@ Le mode web permet d'avoir un résultat de retour à la requete mais oblige la req
 <br>
 <h1>==== LE FICHIER ZIBASE.XML ====</h1><br>
 C'est dans ce fichier que nous allons définir notre grammaire et les actions à effectuer. Pour cela, nous allons utiliser des attributs :<br>
-<b>actionType : </b> Type d'emission (0 = peripherique, 1= scenario). Il est possible d'effectuer une action sur un péripherique en particulier (actionType=0), ou d'appeler un scenario (actionType=1).<br>
 <b>actionModule : </b> Action à effectuer (off, on). Uniquement dans le cas d'une action sur un peripherique<br>
-<b>actionProto : </b> Protocole à utiliser si type=0 (cf ci dessous)<br>
-<b>actionAdd1 : </b> Chiffre adresse du module, si type = 0<br>
-<b>actionAdd2 : </b> ettre adresse, si type = 0<br>
-<b>actionScenario : </b> id du scenario si type=1<br>
+<b>actionProto : </b> Protocole à utiliser si action sur peripherique (cf ci dessous)<br>
+<b>actionAdd1 : </b> Chiffre adresse du modulesi action sur peripherique <br>
+<b>actionAdd2 : </b> ettre adressesi action sur peripherique <br>
+<b>actionScenario : </b> id du scenario si action sur scenario <br>
 <br>
 <h1>==== LISTE DES PROTOCOLES ====</h1>
 Ces valeurs sont a renseigner dans la balise actionProto du zibase.xml<br>
@@ -41,7 +40,6 @@ XDD868 Boiler/AC : 12<br>
 <br>
 <h1>==== EXEMPLES ====</h1>
 Pour actionner le module d'id B2 de type Chacon, on utilisera les paramètres :<br>
-actionType : 0<br>
 actionModule : ON<br>
 actionProto : 0<br>
 actionAdd1 : 2<br>
@@ -49,7 +47,6 @@ actionAdd2 : B<br>
 actionScenario :  (inutilisé)<br>
 <br>
 Pour désactiver le module d'id A1 de type Zwave, on utilisera les paramètres :<br>
-actionType : 0<br>
 actionModule : OFF<br>
 actionProto : 6<br>
 actionAdd1 : 1<br>
@@ -57,20 +54,26 @@ actionAdd2 : A<br>
 actionScenario :  (inutilisé)<br>
 <br>
 Pour lancer le scénario 15, on utilisera les paramètres :<br>
-actionType : 1<br>
 actionModule : (inutilisé)<br>
 actionProto : (inutilisé)<br>
 actionAdd1 : (inutilisé)<br>
 actionAdd2 : (inutilisé)<br>
 actionScenario : 15<br>
 <br>
-<h1>=== TODO List ====</h1>
+<h1>=== Changelog & TODO List ====</h1>
 <br>
-Gestion variateur (DIM)<br>
-Lecture Sondes<br>
-Supprimer l'attribut actionType (se baser sur valeur add ou module)<br>
+<b>v 2.1</b>
+Suppression attribut actionType : se base sur la valeur add (si renseigné = action sur periph, sinon scenario).
+Correction faute de frappe alphabet
+<b>v 2.2</b>
 Retour TTS actions<br>
-Ménage dans le code pour le rendre plus "propre" :p<br>
+<b>v 2.3</b>
+Lecture Sondes<br>
+<b>v 2.4</b>
+Gestion variateur (DIM)<br>
+<br>
+<b>v 3</b>
+Recuperation nom sondes via xml : ne plus utiliser les adresses mais le nom des periph
 <br>
 </body>
 </html>
