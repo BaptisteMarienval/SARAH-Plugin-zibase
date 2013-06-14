@@ -2,7 +2,7 @@
 <body>
 <h1>==== CONFIGURATION ZIBASE.PROP ====</h1><br>
 Le fichier zibase.prop permet de parametrer les informations necessaires au bon fonctionnement du plugin.<br>
-Il est donc indispensable de renseigner ces 6 éléments :<br>
+Il est donc indispensable de renseigner ces 5 éléments :<br>
 - api_url_web : Correspond à l'adresse de la plateforme zibase de votre installation. Par exemple, si vous utilisez la plateforme zibase-club, la valeur sera https://zibase-club.net/m/zapi_remote_zibase_set.php<br>
 - api_url_lan : Permet d'envoyer des requetes directement à la zibase (sans passer par la plateforme web). Il suffit pour cela d'indiquer l'adresse IP locale de la box, par exemple : http://192.168.0.2/cgi-bin/domo.cgi<br>
 - acces_method : Ce parametre permet de choisir entre la méthode locale (lan) ou via la plateforme web (web).<br>
@@ -60,11 +60,19 @@ actionAdd1 : (inutilisé)<br>
 actionAdd2 : (inutilisé)<br>
 actionScenario : 15<br>
 <br>
-<h1>=== Changelog & TODO List ====</h1>
+<h1>=== Changelog ====</h1>
 <br>
+<b>v 2.0</b>
+Mise à jour du plugin de Garth<br>
+Zibase API 1.4<br>
+Gestion de scénario<br>
+Mode online/offline<br>
 <b>v 2.1</b>
-Suppression attribut actionType : se base sur la valeur add (si renseigné = action sur periph, sinon scenario).
-Correction faute de frappe alphabet
+Suppression attribut actionType : se base sur la valeur add (si renseigné = action sur periph, sinon scenario).<br>
+Correction faute de frappe alphabet<br>
+<br>
+<h1>=== TODO ====</h1>
+<br>
 <b>v 2.2</b>
 Retour TTS actions<br>
 <b>v 2.3</b>

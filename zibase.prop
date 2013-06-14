@@ -2,7 +2,7 @@
   "modules" : { 
     "zibase"  : {
       "description": "Pilote les appareils de votre Zibase en parlant à S-A-R-A-H",
-      "version" : "2.0",
+      "version" : "2.1",
       "api_url_web": "https://[SERVER_ZIBASE]/m/zapi_remote_zibase_set.php",
 	  "api_url_lan": "http://[IP_ZIBASE]/cgi-bin/domo.cgi",
 	  "acces_method" : "lan",
