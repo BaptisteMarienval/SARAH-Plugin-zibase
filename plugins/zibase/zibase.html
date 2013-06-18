@@ -5,7 +5,7 @@ Le fichier zibase.prop permet de parametrer les informations necessaires au bon 
 Il est donc indispensable de renseigner ces 5 éléments :<br>
 - api_url_web : Correspond à l'adresse de la plateforme zibase de votre installation. Par exemple, si vous utilisez la plateforme zibase-club, la valeur sera https://zibase-club.net/m/zapi_remote_zibase_set.php<br>
 - api_url_lan : Permet d'envoyer des requetes directement à la zibase (sans passer par la plateforme web). Il suffit pour cela d'indiquer l'adresse IP locale de la box, par exemple : http://192.168.0.2/cgi-bin/domo.cgi<br>
-- acces_method : Ce parametre permet de choisir entre la méthode locale (lan) ou via la plateforme web (web).<br>
+- acces_method : Ce parametre permet de choisir entre la méthode locale (lan) ou via la plateforme web (web). Il est conseillé d'utiliser le mode lan pour des questions de temps de réponse, de sécurité et de disponibilité.<br>
 - device : Indique le nom de votre Zibase (ZIBASEXXXXX).<br>
 - token : Le token associé a votre compte, visible dans l'onglet systeme de l'interface web.<br>
 <br>
@@ -62,25 +62,25 @@ actionScenario : 15<br>
 <br>
 <h1>=== Changelog ====</h1>
 <br>
-<b>v 2.0</b>
+<b>v 2.0</b> (31/05/2013)<br>
 Mise à jour du plugin de Garth<br>
 Zibase API 1.4<br>
 Gestion de scénario<br>
 Mode online/offline<br>
-<b>v 2.1</b>
+<b>v 2.1</b> (18/06/2013)<br>
 Suppression attribut actionType : se base sur la valeur add (si renseigné = action sur periph, sinon scenario).<br>
 Correction faute de frappe alphabet<br>
 <br>
 <h1>=== TODO ====</h1>
 <br>
-<b>v 2.2</b>
+<b>v 2.2</b><br>
 Retour TTS actions<br>
-<b>v 2.3</b>
+<b>v 2.3</b><br>
 Lecture Sondes<br>
-<b>v 2.4</b>
+<b>v 2.4</b><br>
 Gestion variateur (DIM)<br>
 <br>
-<b>v 3</b>
+<b>v 3.0</b><br>
 Recuperation nom sondes via xml : ne plus utiliser les adresses mais le nom des periph
 <br>
 </body>
