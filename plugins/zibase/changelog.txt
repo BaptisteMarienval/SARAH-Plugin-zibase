@@ -7,3 +7,8 @@
 === version 2.1 (18/06/2013) ===
 - Suppression attribut actionType : se base maintenant uniquement sur la valeur add (si renseigné = action sur periph, sinon scenario).
 - Correction faute de frappe "alphabet"
+
+=== version 2.2 (23/06/2013) ===
+- Retour des actions par tts
+- Renommage des attributs
+- Gestion variateurs DIM (chacon & zwave)

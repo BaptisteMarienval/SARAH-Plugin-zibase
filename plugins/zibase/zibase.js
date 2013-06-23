@@ -15,13 +15,21 @@ exports.action = function(data, callback, config){
 		}
 	url = config.api_url_lan;
 	
-	if (data.actionAdd2) {
+	if (data.add2Module) {
 		// une adresse de module = actin sur periph
-		url += '?cmd='+data.actionModule+'%20'+data.actionAdd2+data.actionAdd1+'%20P'+data.actionProto;
+
+		if (data.dimValue){
+			url += '?cmd=DIM%20'+data.add2Module+data.add1Module+'%20P'+data.protocoleModule;
+			url += '%20'+data.dimValue;
 		}
+		else { 
+			url += '?cmd='+data.actionModule+'%20'+data.add2Module+data.add1Module+'%20P'+data.protocoleModule;
+		}
+	}
+
 	else {
 		// scenario
-		url += '?cmd=LM%20'+data.actionScenario;
+		url += '?cmd=LM%20'+data.scenarioId;
 	}
 	console.log("Sending request to: " + url);
 	}
@@ -35,29 +43,48 @@ exports.action = function(data, callback, config){
 		url = config.api_url_web;
    
 		// si add existe = action sur un peripherique
-		if (data.actionAdd2) {
-			// Conversion format action/proto
+		if (data.add2Module) {
+			// Conversion format action/proto/DimValue => param 2
 			var param2convert = "";
-			param2convert = FormatNumberLength(parseInt(data.actionProto,10).toString(2),8);
-			param2convert += FormatNumberLength(actionList.indexOf(data.actionModule), 8);
-			// Conversion de la lettre du module
+			
+			if (data.dimValue){
+				// DIM/BRIGHT
+				param2convert += FormatNumberLength(parseInt(data.dimValue,10).toString(2),8);
+				// PROTOCOL
+				param2convert += FormatNumberLength(parseInt(data.protocoleModule,10).toString(2),8);
+				// ACTION
+				param2convert += FormatNumberLength(parseInt(actionList.indexOf('DIM'),10).toString(2), 8);
+			}
+			else {
+				// PROTOCOL
+				param2convert += FormatNumberLength(parseInt(data.protocoleModule,10).toString(2),8);
+				// ACTION
+				param2convert += FormatNumberLength(actionList.indexOf(data.actionModule), 8);
+			}
+			
+			param2convert = parseInt(param2convert,2).toString(10);
+			
+			// Conversion du chiffre du module => param 3
+			var param3convert = "";
+			param3convert = parseInt(data.add1Module)-1
+			
+			// Conversion de la lettre du module => param 4
 			var param4convert = "";
-			param4convert = alphabet.indexOf(data.actionAdd2);
+			param4convert = alphabet.indexOf(data.add2Module);
 			actionType=0;
 		}
 		// si pas d'add = action sur scenario
 		else {
-			param2convert=parseInt(data.actionScenario, 10).toString(2);
+			param2convert=parseInt(data.scenarioId, 10).toString(2);
 			actionType=1;
 		}
-  
 		url += '?device='+config.device;
 		url += '&token='+config.token;
 		url += '&action=rowzibasecommand';
 		url += '&param1='+actionType; // 0 = emission RF, 1= scenario
-		url += '&param2='+parseInt(param2convert,2).toString(10); // 0..7 = action (0=off, 1=on) ; 8..15 proto (0=chacon, 6=zwave)
+		url += '&param2='+param2convert; // 0..7 = action (0=off, 1=on) ; 8..15 proto (0=chacon, 6=zwave)
 		if (actionType == 0) {
-			url += '&param3='+(parseInt(data.actionAdd1)-1); // chiffre adresse-1
+			url += '&param3='+param3convert; // chiffre adresse-1
 			url += '&param4='+param4convert; // lettre adresse A=0, B=1 ...
 		}
 		console.log("Sending request to: " + url);
@@ -74,10 +101,15 @@ exports.action = function(data, callback, config){
 			return;
 		}
 	}
-	console.log(body);
+	//console.log(body);
     
 	// Callback with TTS
-	callback({'tts': "Je m'en noccupe !"});
+	var tts = data.ttsAction + " " + data.ttsPeriph;
+	if (data.ttsDim){
+	tts += " " + data.ttsDim;
+	}
+	
+	callback({'tts': tts});
 	});
 }
 

@@ -10,16 +10,18 @@ Il est donc indispensable de renseigner ces 5 éléments :<br>
 - token : Le token associé a votre compte, visible dans l'onglet systeme de l'interface web.<br>
 <br>
 Les parametres device et token sont utilisés uniquement dans le cas d'une connexion web. Lors de l'appel direct en lan, ils ne sont pas utilisés.<br>
-Le mode lan permet une meilleure réactivité et un fonctionnement "offline" (en cas de coupure d'internet par exemple), mais il n'y a pas de retour.<br>
-Le mode web permet d'avoir un résultat de retour à la requete mais oblige la requete à transiter via un serveur externe.<br>
+Le mode lan permet une meilleure réactivité et un fonctionnement "offline" (en cas de coupure d'internet par exemple)<br>
+Le mode web oblige la requete à transiter via un serveur externe.<br>
+!!! Il est conseillé d'utiliser le mode lan pour des raisons de performance et de sécurité. !!!<br>
 <br>
 <h1>==== LE FICHIER ZIBASE.XML ====</h1><br>
 C'est dans ce fichier que nous allons définir notre grammaire et les actions à effectuer. Pour cela, nous allons utiliser des attributs :<br>
 <b>actionModule : </b> Action à effectuer (off, on). Uniquement dans le cas d'une action sur un peripherique<br>
-<b>actionProto : </b> Protocole à utiliser si action sur peripherique (cf ci dessous)<br>
-<b>actionAdd1 : </b> Chiffre adresse du modulesi action sur peripherique <br>
-<b>actionAdd2 : </b> ettre adressesi action sur peripherique <br>
-<b>actionScenario : </b> id du scenario si action sur scenario <br>
+<b>protocoleModule : </b> Protocole à utiliser si action sur peripherique (cf ci dessous)<br>
+<b>add1Module : </b> Chiffre adresse du modulesi action sur peripherique <br>
+<b>add2Module : </b> ettre adressesi action sur peripherique <br>
+<b>scenarioId : </b> id du scenario si action sur scenario <br>
+<b>dimValue : 	</b> valeur du variateur en pourcentage<br>
 <br>
 <h1>==== LISTE DES PROTOCOLES ====</h1>
 Ces valeurs sont a renseigner dans la balise actionProto du zibase.xml<br>
@@ -53,6 +55,14 @@ actionAdd1 : 1<br>
 actionAdd2 : A<br>
 actionScenario :  (inutilisé)<br>
 <br>
+Pour activer le module variateur d'id G1 de type Chacon à 75%, on utilisera les paramètres :<br>
+actionModule : ON (la valeur n'aura finalement aucune importance puisqu'on l'ecrasera en detectant la présence de l'attribut dimValue)<br> 
+actionProto : 0<br>
+actionAdd1 : 1<br>
+actionAdd2 : G<br>
+actionScenario :  (inutilisé)<br>
+dimValue : 75<br>
+<br>
 Pour lancer le scénario 15, on utilisera les paramètres :<br>
 actionModule : (inutilisé)<br>
 actionProto : (inutilisé)<br>
@@ -62,26 +72,25 @@ actionScenario : 15<br>
 <br>
 <h1>=== Changelog ====</h1>
 <br>
-<b>v 2.0</b> (31/05/2013)<br>
+<b>version 2.0</b> (31/05/2013)<br>
 Mise à jour du plugin de Garth<br>
 Zibase API 1.4<br>
 Gestion de scénario<br>
 Mode online/offline<br>
-<b>v 2.1</b> (18/06/2013)<br>
+<br>
+<b>version 2.1</b> (18/06/2013)<br>
 Suppression attribut actionType : se base sur la valeur add (si renseigné = action sur periph, sinon scenario).<br>
 Correction faute de frappe alphabet<br>
 <br>
+<b>version 2.2</b> (23/06/2013)<br>
+Retour des actions par tts.<br>
+Gestion variateurs DIM (chacon & zwave)<br>
+Renommage des attributs<br>
+<br>
 <h1>=== TODO ====</h1>
 <br>
-<b>v 2.2</b><br>
-Retour TTS actions<br>
-<b>v 2.3</b><br>
 Lecture Sondes<br>
-<b>v 2.4</b><br>
-Gestion variateur (DIM)<br>
-<br>
-<b>v 3.0</b><br>
-Recuperation nom sondes via xml : ne plus utiliser les adresses mais le nom des periph
+Recuperation du nom des sondes/péripheriques via xml : ne plus utiliser les adresses mais le nom des periph<br>
 <br>
 </body>
 </html>

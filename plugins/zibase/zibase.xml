@@ -1,47 +1,146 @@
 <grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleZibase" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
   <rule id="ruleZibase" scope="public">
-    <example>Sarah allume la lumière du salon</example>
+    <example>Sarah allume la lumiaire du salon</example>
     <tag>out.action=new Object(); </tag>
     <item>Sarah</item>
 	
      <one-of>
-      <item>allume<tag>out.action.actionModule="ON"</tag></item>
-	  <item>ouvre<tag>out.action.actionModule="ON"</tag></item>
-      <item>éteint<tag>out.action.actionModule="OFF"</tag></item>
-	  <item>ferme<tag>out.action.actionModule="OFF"</tag></item>
-	  <item>lance le scenario</item>
-	  <item>arrète le scenario</item>
+      <item>allume<tag>out.action.actionModule="ON";out.action.ttsAction="j'allume";</tag></item>
+	  <item>active<tag>out.action.actionModule="ON";out.action.ttsAction="j'active";</tag></item>
+	  <item>ouvre<tag>out.action.actionModule="ON";out.action.ttsAction="j'ouvre";</tag></item>
+      <item>aiteint<tag>out.action.actionModule="OFF";out.action.ttsAction="j'aiteint";</tag></item>
+	  <item>daisactive<tag>out.action.actionModule="OFF";out.action.ttsAction="je daisactive";</tag></item>
+	  <item>ferme<tag>out.action.actionModule="OFF";out.action.ttsAction="je ferme";</tag></item>
+	  <item>lance le cainario<tag>out.action.ttsAction="je lance le cainario"</tag></item>
     </one-of> 
 	
     <one-of>
 	<!-- Module Zwave -->
+		<item>les volets du saijour
+			<tag>
+				out.action.protocoleModule=6;
+				out.action.add1Module=3;
+				out.action.add2Module="A";
+				out.action.ttsPeriph="les volets du saijour";
+			</tag>
+		</item>
+		
 		<item>les volets du salon
 			<tag>
-				out.action.actionProto=6;
-				out.action.actionAdd1=3;
-				out.action.actionAdd2="A";
+				out.action.protocoleModule=6;
+				out.action.add1Module=1;
+				out.action.add2Module="A";
+				out.action.ttsPeriph="les volets du salon";
+			</tag>
+		</item>
+		
+		<item>la lumiaire de la cuisine
+			<tag>
+				out.action.protocoleModule=6;
+				out.action.add1Module=6;
+				out.action.add2Module="A";
+				out.action.ttsPeriph="la lumiaire de la cuisine";
 			</tag>
 		</item>
 	<!-- Module Chacon -->
-		<item>la lumière du salon
+		<item>la lumiaire du bureau
 			<tag>
-				out.action.actionProto=0;
-				out.action.actionAdd1=1;
-				out.action.actionAdd2="B";
+				out.action.protocoleModule=0;
+				out.action.add1Module=1;
+				out.action.add2Module="B";
+				out.action.ttsPeriph="la lumiaire du bureau";
 			</tag>
 		</item>
+		
+		<item>la lumiaire de la chambre
+			<tag>
+				out.action.protocoleModule=0;
+				out.action.add1Module=2;
+				out.action.add2Module="B";
+				out.action.ttsPeriph="la lumiaire de la chambre";
+			</tag>
+		</item>
+		
+		<item>la lumiaire de la salle de bain
+			<tag>
+				out.action.protocoleModule=0;
+				out.action.add1Module=3;
+				out.action.add2Module="B";
+				out.action.ttsPeriph="la lumiaire de la salle de bain";
+			</tag>
+		</item>
+		
+		<item>la lumiaire de l'aquarium
+			<tag>
+				out.action.protocoleModule=0;
+				out.action.add1Module=1;
+				out.action.add2Module="G";
+				out.action.ttsPeriph="la lumiaire de l'aquarium";
+			</tag>
+		</item>
+				
+		<item>la lampe du salon
+			<tag>
+				out.action.protocoleModule=0;
+				out.action.add1Module=2;
+				out.action.add2Module="G";
+				out.action.ttsPeriph="la lampe du salon";
+			</tag>
+		</item>
+		
+		
+	<!-- Module Blyss  -->
+		<item>la VMC
+			<tag>
+				out.action.protocoleModule=10;
+				out.action.add1Module=1;
+				out.action.add2Module="G";
+				out.action.ttsPeriph="la VMC";
+			</tag>
+		</item>
+			
 	<!-- Scenario  -->
-		<item>alarme désactivée
+		<item>alarme daisactivaie
 			<tag>
-				out.action.actionScenario=9;
+				out.action.scenarioId=9;
+				out.action.ttsPeriph="alarme daisactivai";
 			</tag>
 		</item>
-		<item>alarme activée
-			<tag>;
-				out.action.actionScenario=10;
+		<item>alarme activaie
+			<tag>
+				out.action.scenarioId=10;
+				out.action.ttsPeriph="alarme activai";
 			</tag>
 		</item>
     </one-of>
+	<item repeat="0-1">
+	<one-of>
+			<item>a vingt cinq pour cent
+			<tag>
+				out.action.ttsDim="a vingt cinq pour cent";
+				out.action.dimValue=25;
+			</tag>
+		</item>
+		<item>a cinquant pour cent
+			<tag>
+				out.action.ttsDim="a cinquante pour cent";
+				out.action.dimValue=50;
+			</tag>
+		</item>
+		<item>a soixante quinze pour cent
+			<tag>
+				out.action.ttsDim="a soixante quinze pour cent";
+				out.action.dimValue=75;
+			</tag>
+		</item>
+		<item>a cent pour cent
+			<tag>
+				out.action.ttsDim="a cent pour cent";
+				out.action.dimValue=100;
+			</tag>
+		</item>
+	</one-of>
+	</item>
     <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/zibase";</tag>
   </rule>
 </grammar>
