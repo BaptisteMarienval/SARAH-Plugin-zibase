@@ -9,11 +9,14 @@
 		L'attribut tts correspond au nom du périphériques enoncé par sarah
 -->
 <!-- SONDES -->
-<periph nom="sonde_temp_ext" type="sonde" info="temp" proto="OS" addr="439219202" addr2="v1" tts="La température extérieure est de "/>
-<periph nom="sonde_hygro_ext" type="sonde" info="hygro" proto="OS" addr="439219202" addr2="v2" tts="L'hygrométrie extérieure est de "/>
-<periph nom="sonde_temp_sdb" type="sonde" info="temp" proto="OS" addr="439166977" addr2="v1" tts="La température dans la salle de bain est de "/>
-<periph nom="sonde_hygro_sdb" type="sonde" info="hygro" proto="OS" addr="439166977" addr2="v2" tts="L'hygrométrie dans la salle de bain est de "/>
-<periph nom="sonde_conso_elec" type="sonde" info="elec" proto="WS" addr="133954" addr2="v2" tts="La consommation éléctrique globale est de "/>
+<periph nom="sonde_temp_ext" type="sonde" info="temp" proto="OS" addr="439219202" addr2="v1" tts="La température extérieure est de %s degrés"/>
+<periph nom="sonde_hygro_ext" type="sonde" info="hygro" proto="OS" addr="439219202" addr2="v2" tts="L'hygrométrie extérieure est de %s pourcent"/>
+<periph nom="sonde_battery_ext" type="sonde" info="battery" proto="OS" addr="439219202" addr2="lowbatt" tts="Le niveau des piles est %s"/>
+<periph nom="sonde_temp_sdb" type="sonde" info="temp" proto="OS" addr="439166977" addr2="v1" tts="La température dans la salle de bain est de %s degrés"/>
+<periph nom="sonde_hygro_sdb" type="sonde" info="hygro" proto="OS" addr="439166977" addr2="v2" tts="L'hygrométrie dans la salle de bain est de %s pourcent"/>
+<periph nom="sonde_battery_sdb" type="sonde" info="battery" proto="OS" addr="439166977" addr2="lowbatt" tts="Le niveau des piles est %s"/>
+<periph nom="sonde_conso_elec" type="sonde" info="elec" proto="WS" addr="133954" addr2="v2" tts="La consommation ailaiquetrique globale est de %s kilo watt heure"/>
+<periph nom="sonde_battery_elec" type="sonde" info="battery" proto="WS" addr="133954" addr2="lowbatt" tts="Le niveau des piles est %s"/>
 
 <!-- ZWAVE -->
 <periph nom="volet_sam" type="module" info="" proto="6" addr="A" addr2="3" tts=" les volets de la salle à manger "/>

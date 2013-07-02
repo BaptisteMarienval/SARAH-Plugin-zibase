@@ -140,32 +140,39 @@ exports.action = function(data, callback, config){
 		var evs = results.childNamed("evs");
 		var ev = evs.childWithAttribute('id',module.attr.addr);
 		var ttsEnd = "";
-
-		if (module.attr.info == 'temp') {
+		var sonde;
+		if (module.attr.addr2 == 'v1') {
 			var sonde = ev.attr.v1;
-			ttsEnd = parseFloat(sonde/10).toString().replace(".",",") + " degrès";
+		}
+		if (module.attr.addr2 == 'v2') {
+			var sonde = ev.attr.v2;
+		}
+		if (module.attr.addr2 == 'lowbatt') {
+			var sonde = ev.attr.lowbatt;
+		}
+		
+		if (module.attr.info == 'temp') {
+			ttsEnd = parseFloat(sonde/10).toString().replace(".",",");
 		}
 		if (module.attr.info == 'hygro') {
 			var sonde = ev.attr.v2;
-			ttsEnd =  parseFloat(sonde).toString().replace(".",",")+" pourcent";
+			ttsEnd =  parseFloat(sonde).toString().replace(".",",");
 		}
 		if (module.attr.info == 'elec') {
 			var sonde = ev.attr.v2;
-			ttsEnd = parseFloat(sonde*100).toString().replace(".",",")+" kilo watt heure";
-		}
-		
+			ttsEnd = parseFloat(sonde*100).toString().replace(".",",");
+		}	
 		if (module.attr.info == 'battery') {
-			var sonde = ev.attr.lowbatt;
 			if (parseFloat(sonde) == 0) {
-			ttsEnd = " bon";
+				ttsEnd = " bon";
 			}
 			else {
-			ttsEnd = " faible";
+				ttsEnd = " faible";
 			}
-		}
+		}	
 		
-		tts = module.attr.tts + ttsEnd;
-		
+		tts = module.attr.tts;
+		tts = tts.replace('%s', ttsEnd);
 	}
 	
     else {

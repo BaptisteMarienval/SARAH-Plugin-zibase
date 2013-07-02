@@ -12,3 +12,7 @@
 - Retour des actions par tts
 - Renommage des attributs
 - Gestion variateurs DIM (chacon & zwave)
+
+=== version 2.3 (??/07/2013) ===
+- Gestion des sondes (mode offline)
+- Descripteur de périphériques
