@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<peripheriques>
+<!-- 	L'attribut nom des obligatoire et doit etre UNIQUE
+		L'attribut type est obligatoire
+		L'attribut info n'est obligatoire que pour les sondes (permet de definir l'unité)
+		L'attibut proto n'est pas obligatoire pour les scenarios
+		L'attribut addr est obligatoire. Il correspond soit a l'id de la sonde, soit a la lettre du module, soit à l'id du scenario
+		L'attribut addr2 n'est pas obligatoire pour les scenarios. Il correspond au chiffre adresse du module ou a l'attribut correspondant pour les sondes (v1 ou v2)
+		L'attribut tts correspond au nom du périphériques enoncé par sarah
+-->
+<!-- SONDES -->
+<periph nom="sonde_temp_ext" type="sonde" info="temp" proto="OS" addr="439219202" addr2="v1" tts="La température extérieure est de "/>
+<periph nom="sonde_hygro_ext" type="sonde" info="hygro" proto="OS" addr="439219202" addr2="v2" tts="L'hygrométrie extérieure est de "/>
+<periph nom="sonde_temp_sdb" type="sonde" info="temp" proto="OS" addr="439166977" addr2="v1" tts="La température dans la salle de bain est de "/>
+<periph nom="sonde_hygro_sdb" type="sonde" info="hygro" proto="OS" addr="439166977" addr2="v2" tts="L'hygrométrie dans la salle de bain est de "/>
+<periph nom="sonde_conso_elec" type="sonde" info="elec" proto="WS" addr="133954" addr2="v2" tts="La consommation éléctrique globale est de "/>
+
+<!-- ZWAVE -->
+<periph nom="volet_sam" type="module" info="" proto="6" addr="A" addr2="3" tts=" les volets de la salle à manger "/>
+<periph nom="volet_salon" type="module" info="" proto="6" addr="A" addr2="5" tts=" les volets du salon "/>
+<periph nom="lumiere_cuisine" type="module" info="" proto="6" addr="A" addr2="6" tts=" la lumière de la cuisine "/>
+
+<!-- CHACON -->
+<periph nom="lumiere_bureau" type="module" info="" proto="0" addr="B" addr2="1" tts=" la lumière du bureau "/>
+<periph nom="lumiere_chambre_amis" type="module" info="" proto="0" addr="B" addr2="2" tts=" la lumière de la chambre d'amis "/>
+<periph nom="lumiere_sdb" type="module" info="" proto="0" addr="B" addr2="3" tts=" la lumière de la salle de bain "/>
+<periph nom="prise_aqua" type="module" info="" proto="0" addr="G" addr2="1" tts=" la lampe de l'aquarium "/>
+<periph nom="lampe_salon" type="module" info="" proto="0" addr="G" addr2="2" tts=" la lampe du salon "/>
+
+<!-- BLYSS -->
+<periph nom="vmc" type="module" info="" proto="10" addr="G" addr2="1" tts=" la VMC "/>
+
+<!-- SCENARIO -->
+<periph nom="alarme_OFF" type="scenario" info="" proto="" addr="9" addr2="" tts=" Alarme désactivée "/>
+<periph nom="alarme_ON" type="scenario" info="" proto="" addr="10" addr2="" tts=" Alarme activée "/>
+</peripheriques>

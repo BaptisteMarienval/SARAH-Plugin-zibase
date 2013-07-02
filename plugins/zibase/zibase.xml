@@ -11,80 +11,58 @@
       <item>aiteint<tag>out.action.actionModule="OFF";out.action.ttsAction="j'aiteint";</tag></item>
 	  <item>daisactive<tag>out.action.actionModule="OFF";out.action.ttsAction="je daisactive";</tag></item>
 	  <item>ferme<tag>out.action.actionModule="OFF";out.action.ttsAction="je ferme";</tag></item>
-	  <item>lance le cainario<tag>out.action.ttsAction="je lance le cainario"</tag></item>
+	  <item>lance le cainario<tag>out.action.ttsAction="je lance le sainario"</tag></item>
+	  <item>Quelle est</item>
     </one-of> 
 	
     <one-of>
 	<!-- Module Zwave -->
-		<item>les volets du saijour
+		<item>les volets de la salle a manger
 			<tag>
-				out.action.protocoleModule=6;
-				out.action.add1Module=3;
-				out.action.add2Module="A";
-				out.action.ttsPeriph="les volets du saijour";
+			out.action.module="volet_sam";
 			</tag>
 		</item>
 		
 		<item>les volets du salon
 			<tag>
-				out.action.protocoleModule=6;
-				out.action.add1Module=1;
-				out.action.add2Module="A";
-				out.action.ttsPeriph="les volets du salon";
+			out.action.module="volet_salon";
 			</tag>
 		</item>
 		
 		<item>la lumiaire de la cuisine
 			<tag>
-				out.action.protocoleModule=6;
-				out.action.add1Module=6;
-				out.action.add2Module="A";
-				out.action.ttsPeriph="la lumiaire de la cuisine";
+			out.action.module="lumiere_cuisine";
 			</tag>
 		</item>
+		
 	<!-- Module Chacon -->
 		<item>la lumiaire du bureau
 			<tag>
-				out.action.protocoleModule=0;
-				out.action.add1Module=1;
-				out.action.add2Module="B";
-				out.action.ttsPeriph="la lumiaire du bureau";
+			out.action.module="lumiere_bureau";
 			</tag>
 		</item>
 		
 		<item>la lumiaire de la chambre
 			<tag>
-				out.action.protocoleModule=0;
-				out.action.add1Module=2;
-				out.action.add2Module="B";
-				out.action.ttsPeriph="la lumiaire de la chambre";
+			out.action.module="lumiere_chambre_amis";
 			</tag>
 		</item>
 		
 		<item>la lumiaire de la salle de bain
 			<tag>
-				out.action.protocoleModule=0;
-				out.action.add1Module=3;
-				out.action.add2Module="B";
-				out.action.ttsPeriph="la lumiaire de la salle de bain";
+			out.action.module="lumiere_sdb";
 			</tag>
 		</item>
 		
 		<item>la lumiaire de l'aquarium
 			<tag>
-				out.action.protocoleModule=0;
-				out.action.add1Module=1;
-				out.action.add2Module="G";
-				out.action.ttsPeriph="la lumiaire de l'aquarium";
+			out.action.module="prise_aqua";
 			</tag>
 		</item>
 				
 		<item>la lampe du salon
 			<tag>
-				out.action.protocoleModule=0;
-				out.action.add1Module=2;
-				out.action.add2Module="G";
-				out.action.ttsPeriph="la lampe du salon";
+			out.action.module="lampe_salon";
 			</tag>
 		</item>
 		
@@ -92,27 +70,54 @@
 	<!-- Module Blyss  -->
 		<item>la VMC
 			<tag>
-				out.action.protocoleModule=10;
-				out.action.add1Module=1;
-				out.action.add2Module="G";
-				out.action.ttsPeriph="la VMC";
+			out.action.module="vmc";
 			</tag>
 		</item>
+			
+	<!-- Sondes -->
+		<item>la température extérieure
+			<tag>
+			out.action.module="sonde_temp_ext";
+			</tag>
+		</item>	
+		
+		<item>la température dans la salle de bain
+			<tag>
+			out.action.module="sonde_temp_sdb";
+			</tag>
+		</item>	
+		
+		<item>l'hygrométrie extérieure
+			<tag>
+			out.action.module="sonde_hygro_ext";
+			</tag>
+		</item>	
+		
+		<item>l'hygrométrie dans la salle de bain
+			<tag>
+			out.action.module="sonde_hygro_sdb";
+			</tag>
+		</item>	
+		
+		<item>la consommation de la maison
+			<tag>
+			out.action.module="sonde_conso_elec";
+			</tag>
+		</item>	
 			
 	<!-- Scenario  -->
 		<item>alarme daisactivaie
 			<tag>
-				out.action.scenarioId=9;
-				out.action.ttsPeriph="alarme daisactivai";
+			out.action.module="alarme_OFF";
 			</tag>
 		</item>
 		<item>alarme activaie
 			<tag>
-				out.action.scenarioId=10;
-				out.action.ttsPeriph="alarme activai";
+			out.action.module="alarme_ON";
 			</tag>
 		</item>
     </one-of>
+	
 	<item repeat="0-1">
 	<one-of>
 			<item>a vingt cinq pour cent

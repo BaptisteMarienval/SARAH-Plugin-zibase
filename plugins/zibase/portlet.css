@@ -1,0 +1,10 @@
+
+.plugin-gridster.zibase .front {
+  background: #FFD81A url('images/lzibase.jpg') center 34px;
+  background-size:   82px 91px;
+  background-repeat: no-repeat;
+}
+
+.plugin-gridster.zibase .back {
+  background: #FFD81A;
+}
