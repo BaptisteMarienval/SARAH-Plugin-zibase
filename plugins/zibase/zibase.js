@@ -151,17 +151,21 @@ exports.action = function(data, callback, config){
 			var sonde = ev.attr.lowbatt;
 		}
 		
-		if (module.attr.info == 'temp') {
-			ttsEnd = parseFloat(sonde/10).toString().replace(".",",");
+		if (module.attr.operation.indexOf('/', 0) !== -1) {
+			sonde = parseFloat(sonde)/parseFloat(module.attr.operation.substring(1,module.attr.operation.length)); 
 		}
-		if (module.attr.info == 'hygro') {
-			var sonde = ev.attr.v2;
-			ttsEnd =  parseFloat(sonde).toString().replace(".",",");
+		else if ((module.attr.operation.indexOf('*', 0) !== -1)){
+			sonde = parseFloat(sonde)*parseFloat(module.attr.operation.substring(1,module.attr.operation.length));
 		}
-		if (module.attr.info == 'elec') {
-			var sonde = ev.attr.v2;
-			ttsEnd = parseFloat(sonde*100).toString().replace(".",",");
-		}	
+		else if ((module.attr.operation.indexOf('+', 0) !== -1)){
+			sonde = parseFloat(sonde)+parseFloat(module.attr.operation.substring(1,module.attr.operation.length));
+		}
+		else if ((module.attr.operation.indexOf('-', 0) !== -1)){
+			sonde = parseFloat(sonde)-parseFloat(module.attr.operation.substring(1,module.attr.operation.length));
+		}
+		
+		ttsEnd = parseFloat(sonde).toString().replace(".",",");
+
 		if (module.attr.info == 'battery') {
 			if (parseFloat(sonde) == 0) {
 				ttsEnd = " bon";
