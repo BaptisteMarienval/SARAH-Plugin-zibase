@@ -164,15 +164,15 @@ exports.action = function(data, callback, config){
 		}
 		
 		ttsEnd = parseFloat(sonde).toString().replace("."," virgule ");
-
-		if (module.attr.info == 'battery') {
+		
+		if (module.attr.addr2 == 'lowbatt') {
 			if (parseFloat(sonde) == 0) {
 				ttsEnd = " bon";
 			}
 			else {
 				ttsEnd = " faible";
 			}
-		}	
+		}
 		
 		tts = module.attr.tts;
 		tts = tts.replace('%s', ttsEnd);

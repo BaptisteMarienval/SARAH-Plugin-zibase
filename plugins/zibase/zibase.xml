@@ -105,6 +105,11 @@
 			</tag>
 		</item>	
 			
+		<item>l'état des piles de la sonde extérieure
+			<tag>
+			out.action.module="sonde_battery_ext";
+			</tag>
+		</item>	
 	<!-- Scenario  -->
 		<item>alarme daisactivaie
 			<tag>

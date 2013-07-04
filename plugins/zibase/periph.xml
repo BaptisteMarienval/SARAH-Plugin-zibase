@@ -9,31 +9,31 @@
 		L'attribut tts correspond au nom du périphériques enoncé par sarah
 -->
 <!-- SONDES -->
-<periph nom="sonde_temp_ext" type="sonde" info="temp" proto="OS" addr="439219202" addr2="v1" operation="/10" tts="La température extérieure est de %s degrés"/>
-<periph nom="sonde_hygro_ext" type="sonde" info="hygro" proto="OS" addr="439219202" addr2="v2" operation="" tts="L'hygrométrie extérieure est de %s pourcent"/>
-<periph nom="sonde_battery_ext" type="sonde" info="battery" proto="OS" addr="439219202" addr2="lowbatt" operation="" tts="Le niveau des piles est %s"/>
-<periph nom="sonde_temp_sdb" type="sonde" info="temp" proto="OS" addr="439166977" addr2="v1" operation="/10" tts="La température dans la salle de bain est de %s degrés"/>
-<periph nom="sonde_hygro_sdb" type="sonde" info="hygro" proto="OS" addr="439166977" addr2="v2" operation="" tts="L'hygrométrie dans la salle de bain est de %s pourcent"/>
-<periph nom="sonde_battery_sdb" type="sonde" info="battery" proto="OS" addr="439166977" addr2="lowbatt" operation="" tts="Le niveau des piles est %s"/>
-<periph nom="sonde_conso_elec" type="sonde" info="elec" proto="WS" addr="133954" addr2="v2" operation="*100" tts="La consommation ailaiquetrique globale est de %s kilo watt heure"/>
-<periph nom="sonde_battery_elec" type="sonde" info="battery" proto="WS" addr="133954" addr2="lowbatt" operation="" tts="Le niveau des piles est %s"/>
+<periph nom="sonde_temp_ext" type="sonde" proto="OS" addr="439219202" addr2="v1" operation="/10" tts="La température extérieure est de %s degrés"/>
+<periph nom="sonde_hygro_ext" type="sonde" proto="OS" addr="439219202" addr2="v2" operation="" tts="L'hygrométrie extérieure est de %s pourcent"/>
+<periph nom="sonde_battery_ext" type="sonde" proto="OS" addr="439219202" addr2="lowbatt" operation="" tts="Le niveau des piles est %s"/>
+<periph nom="sonde_temp_sdb" type="sonde" proto="OS" addr="439166977" addr2="v1" operation="/10" tts="La température dans la salle de bain est de %s degrés"/>
+<periph nom="sonde_hygro_sdb" type="sonde" proto="OS" addr="439166977" addr2="v2" operation="" tts="L'hygrométrie dans la salle de bain est de %s pourcent"/>
+<periph nom="sonde_battery_sdb" type="sonde" proto="OS" addr="439166977" addr2="lowbatt" operation="" tts="Le niveau des piles est %s"/>
+<periph nom="sonde_conso_elec" type="sonde" proto="WS" addr="133954" addr2="v2" operation="*100" tts="La consommation ailaiquetrique globale est de %s kilo watt heure"/>
+<periph nom="sonde_battery_elec" type="sonde" proto="WS" addr="133954" addr2="lowbatt" operation="" tts="Le niveau des piles est %s"/>
 
 <!-- ZWAVE -->
-<periph nom="volet_sam" type="module" info="" proto="6" addr="A" addr2="3" tts=" les volets de la salle à manger "/>
-<periph nom="volet_salon" type="module" info="" proto="6" addr="A" addr2="5" tts=" les volets du salon "/>
-<periph nom="lumiere_cuisine" type="module" info="" proto="6" addr="A" addr2="6" tts=" la lumière de la cuisine "/>
+<periph nom="volet_sam" type="module" proto="6" addr="A" addr2="3" tts=" les volets de la salle à manger "/>
+<periph nom="volet_salon" type="module" proto="6" addr="A" addr2="5" tts=" les volets du salon "/>
+<periph nom="lumiere_cuisine" type="module" proto="6" addr="A" addr2="6" tts=" la lumière de la cuisine "/>
 
 <!-- CHACON -->
-<periph nom="lumiere_bureau" type="module" info="" proto="0" addr="B" addr2="1" tts=" la lumière du bureau "/>
-<periph nom="lumiere_chambre_amis" type="module" info="" proto="0" addr="B" addr2="2" tts=" la lumière de la chambre d'amis "/>
-<periph nom="lumiere_sdb" type="module" info="" proto="0" addr="B" addr2="3" tts=" la lumière de la salle de bain "/>
-<periph nom="prise_aqua" type="module" info="" proto="0" addr="G" addr2="1" tts=" la lampe de l'aquarium "/>
-<periph nom="lampe_salon" type="module" info="" proto="0" addr="G" addr2="2" tts=" la lampe du salon "/>
+<periph nom="lumiere_bureau" type="module" proto="0" addr="B" addr2="1" tts=" la lumière du bureau "/>
+<periph nom="lumiere_chambre_amis" type="module" proto="0" addr="B" addr2="2" tts=" la lumière de la chambre d'amis "/>
+<periph nom="lumiere_sdb" type="module" proto="0" addr="B" addr2="3" tts=" la lumière de la salle de bain "/>
+<periph nom="prise_aqua" type="module" proto="0" addr="G" addr2="1" tts=" la lampe de l'aquarium "/>
+<periph nom="lampe_salon" type="module" proto="0" addr="G" addr2="2" tts=" la lampe du salon "/>
 
 <!-- BLYSS -->
-<periph nom="vmc" type="module" info="" proto="10" addr="G" addr2="1" tts=" la VMC "/>
+<periph nom="vmc" type="module" proto="10" addr="G" addr2="1" tts=" la VMC "/>
 
 <!-- SCENARIO -->
-<periph nom="alarme_OFF" type="scenario" info="" proto="" addr="9" addr2="" tts=" Alarme désactivée "/>
-<periph nom="alarme_ON" type="scenario" info="" proto="" addr="10" addr2="" tts=" Alarme activée "/>
+<periph nom="alarme_OFF" type="scenario" proto="" addr="9" addr2="" tts=" Alarme désactivée "/>
+<periph nom="alarme_ON" type="scenario" proto="" addr="10" addr2="" tts=" Alarme activée "/>
 </peripheriques>
