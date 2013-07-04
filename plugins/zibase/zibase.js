@@ -134,7 +134,6 @@ exports.action = function(data, callback, config){
 	}
 	
 	// Sensors action => Parsing XML
-	// !! les variables v1, v2 peuvent varier selon le péripherique
 	if (module.attr.type == 'sonde') {
 		var results = new xmldoc.XmlDocument(body);
 		var evs = results.childNamed("evs");
@@ -152,19 +151,19 @@ exports.action = function(data, callback, config){
 		}
 		
 		if (module.attr.operation.indexOf('/', 0) !== -1) {
-			sonde = parseFloat(sonde)/parseFloat(module.attr.operation.substring(1,module.attr.operation.length)); 
+			sonde = RoundTo2Decimals(parseFloat(sonde)/parseFloat(module.attr.operation.substring(1,module.attr.operation.length))); 
 		}
 		else if ((module.attr.operation.indexOf('*', 0) !== -1)){
-			sonde = parseFloat(sonde)*parseFloat(module.attr.operation.substring(1,module.attr.operation.length));
+			sonde = RoundTo2Decimals(parseFloat(sonde)*parseFloat(module.attr.operation.substring(1,module.attr.operation.length)));
 		}
 		else if ((module.attr.operation.indexOf('+', 0) !== -1)){
-			sonde = parseFloat(sonde)+parseFloat(module.attr.operation.substring(1,module.attr.operation.length));
+			sonde = RoundTo2Decimals(parseFloat(sonde)+parseFloat(module.attr.operation.substring(1,module.attr.operation.length)));
 		}
 		else if ((module.attr.operation.indexOf('-', 0) !== -1)){
-			sonde = parseFloat(sonde)-parseFloat(module.attr.operation.substring(1,module.attr.operation.length));
+			sonde = RoundTo2Decimals(parseFloat(sonde)-parseFloat(module.attr.operation.substring(1,module.attr.operation.length)));
 		}
 		
-		ttsEnd = parseFloat(sonde).toString().replace(".",",");
+		ttsEnd = parseFloat(sonde).toString().replace("."," virgule ");
 
 		if (module.attr.info == 'battery') {
 			if (parseFloat(sonde) == 0) {
@@ -196,4 +195,8 @@ function FormatNumberLength(num, length) {
         r = "0" + r;
     }
     return r;
+}
+
+function RoundTo2Decimals(numberToRound) {
+  return Math.round(numberToRound * 100) / 100
 }
