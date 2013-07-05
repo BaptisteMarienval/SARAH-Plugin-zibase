@@ -1,8 +1,8 @@
 {
   "modules" : { 
     "zibase"  : {
-      "description": "Pilote les appareils de votre Zibase en parlant à S-A-R-A-H",
-      "version" : "2.3",
+      "description": "Pilote les appareils de votre Zibase",
+      "version" : "3.0",
       "plateforme_web": "zibase.net",
 	  "ip_lan": "[IP]",
 	  "acces_method" : "lan",

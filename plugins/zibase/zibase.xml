@@ -1,6 +1,6 @@
 <grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleZibase" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
   <rule id="ruleZibase" scope="public">
-    <example>Sarah allume la lumiaire du salon</example>
+    <example>Sarah, allume la lumière du salon</example>
     <tag>out.action=new Object(); </tag>
     <item>Sarah</item>
 	
@@ -8,10 +8,10 @@
       <item>allume<tag>out.action.actionModule="ON";out.action.ttsAction="j'allume";</tag></item>
 	  <item>active<tag>out.action.actionModule="ON";out.action.ttsAction="j'active";</tag></item>
 	  <item>ouvre<tag>out.action.actionModule="ON";out.action.ttsAction="j'ouvre";</tag></item>
-      <item>aiteint<tag>out.action.actionModule="OFF";out.action.ttsAction="j'aiteint";</tag></item>
-	  <item>daisactive<tag>out.action.actionModule="OFF";out.action.ttsAction="je daisactive";</tag></item>
+      <item>éteint<tag>out.action.actionModule="OFF";out.action.ttsAction="j'éteint";</tag></item>
+	  <item>désactive<tag>out.action.actionModule="OFF";out.action.ttsAction="je désactive";</tag></item>
 	  <item>ferme<tag>out.action.actionModule="OFF";out.action.ttsAction="je ferme";</tag></item>
-	  <item>lance le cainario<tag>out.action.ttsAction="je lance le sainario"</tag></item>
+	  <item>lance le scénario<tag>out.action.ttsAction="je lance le scénario"</tag></item>
 	  <item>Quelle est</item>
     </one-of> 
 	
@@ -23,49 +23,19 @@
 			</tag>
 		</item>
 		
-		<item>les volets du salon
-			<tag>
-			out.action.module="volet_salon";
-			</tag>
-		</item>
-		
-		<item>la lumiaire de la cuisine
-			<tag>
-			out.action.module="lumiere_cuisine";
-			</tag>
-		</item>
-		
 	<!-- Module Chacon -->
 		<item>la lumiaire du bureau
 			<tag>
 			out.action.module="lumiere_bureau";
 			</tag>
 		</item>
-		
-		<item>la lumiaire de la chambre
+				
+		<item>la prise de la télévision
 			<tag>
-			out.action.module="lumiere_chambre_amis";
-			</tag>
-		</item>
-		
-		<item>la lumiaire de la salle de bain
-			<tag>
-			out.action.module="lumiere_sdb";
-			</tag>
-		</item>
-		
-		<item>la lumiaire de l'aquarium
-			<tag>
-			out.action.module="prise_aqua";
+			out.action.module="prise_tv";
 			</tag>
 		</item>
 				
-		<item>la lampe du salon
-			<tag>
-			out.action.module="lampe_salon";
-			</tag>
-		</item>
-		
 		
 	<!-- Module Blyss  -->
 		<item>la VMC
@@ -80,43 +50,26 @@
 			out.action.module="sonde_temp_ext";
 			</tag>
 		</item>	
-		
-		<item>la température dans la salle de bain
-			<tag>
-			out.action.module="sonde_temp_sdb";
-			</tag>
-		</item>	
-		
+				
 		<item>l'hygrométrie extérieure
 			<tag>
 			out.action.module="sonde_hygro_ext";
 			</tag>
 		</item>	
 		
-		<item>l'hygrométrie dans la salle de bain
-			<tag>
-			out.action.module="sonde_hygro_sdb";
-			</tag>
-		</item>	
-		
-		<item>la consommation de la maison
-			<tag>
-			out.action.module="sonde_conso_elec";
-			</tag>
-		</item>	
-			
 		<item>l'état des piles de la sonde extérieure
 			<tag>
 			out.action.module="sonde_battery_ext";
 			</tag>
 		</item>	
+		
 	<!-- Scenario  -->
-		<item>alarme daisactivaie
+		<item>alarme désactivée
 			<tag>
 			out.action.module="alarme_OFF";
 			</tag>
 		</item>
-		<item>alarme activaie
+		<item>alarme activée
 			<tag>
 			out.action.module="alarme_ON";
 			</tag>
@@ -127,25 +80,25 @@
 	<one-of>
 			<item>a vingt cinq pour cent
 			<tag>
-				out.action.ttsDim="a vingt cinq pour cent";
+				out.action.ttsDim=" a vingt cinq pour cent";
 				out.action.dimValue=25;
 			</tag>
 		</item>
 		<item>a cinquant pour cent
 			<tag>
-				out.action.ttsDim="a cinquante pour cent";
+				out.action.ttsDim=" a cinquante pour cent";
 				out.action.dimValue=50;
 			</tag>
 		</item>
 		<item>a soixante quinze pour cent
 			<tag>
-				out.action.ttsDim="a soixante quinze pour cent";
+				out.action.ttsDim=" a soixante quinze pour cent";
 				out.action.dimValue=75;
 			</tag>
 		</item>
 		<item>a cent pour cent
 			<tag>
-				out.action.ttsDim="a cent pour cent";
+				out.action.ttsDim=" a cent pour cent";
 				out.action.dimValue=100;
 			</tag>
 		</item>
