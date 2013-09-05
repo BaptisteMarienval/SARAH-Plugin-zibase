@@ -1,4 +1,4 @@
-exports.action = function(data, callback, config){
+exports.action = function(data, callback, config, SARAH){
 
 	var xmldoc = require('./lib/xmldoc');
 	config = config.modules.zibase;
@@ -22,11 +22,18 @@ exports.action = function(data, callback, config){
 	var xmlFile = fs.readFileSync(__dirname+'\\periph.xml');
 	var file = new xmldoc.XmlDocument(xmlFile);
 	var module = file.childWithAttribute('nom',data.module);
+	
+	if (!module) {
+		console.log("unknown module in periph.xml");
+		SARAH.speak("Je ne connais pas le module demandé");
+		return;
+	}
 
 	/***** LAN method *****/
 	if(config.acces_method == "lan") {
 		if (!config.ip_lan){
-			console.log("Missing Zibase LAN url");
+			console.log("Missing Zibase LAN url in zibase.prop");
+			SARAH.speak("Je n'arrive pas à lire l'adresse IP de la box domotique");
 			return;
 		}
 		// periph action
@@ -57,7 +64,8 @@ exports.action = function(data, callback, config){
 	/***** WEB method *****/
 	else {
 		if (!config.plateforme_web){
-		console.log("Missing Zibase WEB url");
+		console.log("Missing Zibase WEB url in zibase.prop");
+		SARAH.speak("Je n'arrive pas à lire l'url du serveur zibase");
 		return;
 		}
 		url = https+config.plateforme_web+web_path;
@@ -95,7 +103,9 @@ exports.action = function(data, callback, config){
 		}
 		
 		if (module.attr.type='sonde') {
-		callback({'tts': "La gestion des sondes en mode web n'est pour le moment pas possible"});
+			console.log("You can't use probe when you're in web acces mode");
+			SARAH.speak("La gestion des sondes en mode web n'est pour le moment pas possible");
+			callback();
 			return;
 		}
 		
@@ -128,7 +138,9 @@ exports.action = function(data, callback, config){
 	// Retour uniquement en config web
 	if(config.acces_method == "web") {
 		if (err || response.statusCode != 200) {
-			callback({'tts': "L'action a échoué"});
+			console.log("No response from the server");
+			SARAH.speak("L'action a échoué. Le serveur ne répond pas");
+			callback();
 			return;
 		}
 	}
@@ -184,8 +196,9 @@ exports.action = function(data, callback, config){
 			tts += " " + data.ttsDim;
 		}
 	}
-	// Callback with TTS
-	callback({'tts': tts});
+	// TTS + Callback
+	SARAH.speak(tts);
+	callback();
 	});
 }
 
