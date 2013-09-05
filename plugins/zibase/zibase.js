@@ -26,7 +26,7 @@ exports.action = function(data, callback, config, SARAH){
 	if (!module) {
 		console.log("unknown module in periph.xml");
 		SARAH.speak("Je ne connais pas le module demandé");
-		return;
+		callback();
 	}
 
 	/***** LAN method *****/
@@ -34,7 +34,7 @@ exports.action = function(data, callback, config, SARAH){
 		if (!config.ip_lan){
 			console.log("Missing Zibase LAN url in zibase.prop");
 			SARAH.speak("Je n'arrive pas à lire l'adresse IP de la box domotique");
-			return;
+			callback();
 		}
 		// periph action
 		if (module.attr.type=='module') {
@@ -66,7 +66,7 @@ exports.action = function(data, callback, config, SARAH){
 		if (!config.plateforme_web){
 		console.log("Missing Zibase WEB url in zibase.prop");
 		SARAH.speak("Je n'arrive pas à lire l'url du serveur zibase");
-		return;
+		callback();
 		}
 		url = https+config.plateforme_web+web_path;
    
@@ -106,7 +106,6 @@ exports.action = function(data, callback, config, SARAH){
 			console.log("You can't use probe when you're in web acces mode");
 			SARAH.speak("La gestion des sondes en mode web n'est pour le moment pas possible");
 			callback();
-			return;
 		}
 		
 		// Scenario action
@@ -141,7 +140,6 @@ exports.action = function(data, callback, config, SARAH){
 			console.log("No response from the server");
 			SARAH.speak("L'action a échoué. Le serveur ne répond pas");
 			callback();
-			return;
 		}
 	}
 	
